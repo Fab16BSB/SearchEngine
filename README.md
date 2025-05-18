@@ -11,8 +11,8 @@
 
 ## 🌍 Multilingual README Versions
 
-- 🇫🇷 [French (you are here)](#)
-- 🇬🇧 [English](./README_EN.md)
+- 🇫🇷 [French](./README.fr.md)
+- 🇬🇧 [English](you are here)](#)
 - 🇪🇸 [Spanish](./README.es.md)
 
 ---
