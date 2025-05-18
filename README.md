@@ -12,7 +12,7 @@
 ## 🌍 Multilingual README Versions
 
 - 🇫🇷 [French](./README.fr.md)
-- 🇬🇧 [English](you are here)](#)
+- 🇬🇧 [English (you are here)](#)
 - 🇪🇸 [Spanish](./README.es.md)
 
 ---
