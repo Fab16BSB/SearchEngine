@@ -71,8 +71,9 @@ Les documents contenant des termes de la requête sont ensuite comparés à l’
 
 ### 📁 Structure du projet
 
-- `hotels/` : dossier contenant les différentes fichier du jeux de données (les commentaires)
-- `src/` : dossier contenant les fichier de code java
+- `hotels/` : dossier contenant les fichiers du jeu de données (avis d’hôtels)
+- `src/` : dossier contenant les fichiers source en Java
+- `stopword.txt` : fichier listant les mots vides (stop words) en anglais, utilisés pour le filtrage
 
 ---
 

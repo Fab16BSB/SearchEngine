@@ -69,8 +69,9 @@ Documents containing query terms are then compared using **cosine similarity** b
 
 ### 📁 Project Structure
 
-- `hotels/`: folder containing the dataset files (the reviews)
-- `src/`: folder containing the Java source files
+- `hotels/` : folder containing the dataset files (hotel reviews)
+- `src/` : folder containing the Java source code files
+- `stopword.txt` : file listing English stop words used for filtering
 
 ---
 

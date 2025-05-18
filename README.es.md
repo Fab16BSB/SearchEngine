@@ -68,10 +68,11 @@ Los documentos que contienen términos de la consulta se comparan usando la **si
 
 ---
 
-### 📁 Estructura del Proyecto
+### 📁 Estructura del proyecto
 
-- `hotels/`: carpeta que contiene los archivos del conjunto de datos (las reseñas)
-- `src/`: carpeta con los archivos fuente Java
+- `hotels/` : carpeta que contiene los archivos del conjunto de datos (reseñas de hoteles)
+- `src/` : carpeta que contiene los archivos fuente en Java
+- `stopword.txt` : archivo que contiene las palabras vacías (stop words) en inglés, utilizadas para el filtrado
 
 ---
 
