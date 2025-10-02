@@ -2,6 +2,7 @@
 ![University: IUT Montreuil](https://img.shields.io/badge/University-IUT%20Montreuil-red)
 ![machine: learning](https://img.shields.io/badge/big-data-blue)
 ![java: 17](https://img.shields.io/badge/java-8-brightgreen)
+![Docker Ready](https://img.shields.io/badge/Docker-Ready-blue?logo=docker)
 ![Contributors](https://img.shields.io/badge/contributor-1-orange)
 ![Stars](https://img.shields.io/github/stars/Fab16BSB/SearchEngine?color=orange)
 ![Fork](https://img.shields.io/github/forks/Fab16BSB/SearchEngine?color=orange)
@@ -11,9 +12,9 @@
 
 ## 🌍 Multilingual README Versions
 
-- 🇫🇷 [French](./README.fr.md)
-- 🇬🇧 [English (you are here)](#)
-- 🇪🇸 [Spanish](./README.es.md)
+| 🇫🇷 Français | 🇬🇧 English | 🇪🇸 Español |
+|-------------|------------|------------|
+| [README.fr.md](./README.fr.md) | You are here ! | [README.es.md](./README.es.md) |
 
 ---
 
@@ -86,7 +87,9 @@ If you do not have Java installed, you can follow one of my YouTube videos to in
 ---
 
 ### 📝 Compilation and Execution
+You can compile and run the project either **locally** or using **Docker**.
 
+### ⚡ Option 1: Local Compilation and Execution
 1. **Clone the repository**
 
    ```bash
@@ -104,7 +107,56 @@ If you do not have Java installed, you can follow one of my YouTube videos to in
     ```bash
     java Main
     ````
+
+### 🐳 Option 2: Using Docker
+
+1. **Build the Docker image**
+   ```bash
+   docker build -t search_engine .
+   ```
+   
+
+2. **Run the Docker container**
+
+   ➤ ⏳ **A. Run a temporary container (files will NOT be saved)** ⏳  
+
+      - This will start the container, run your program, and delete the container when it stops. Any changes to files inside the container will be lost.  
+
+         ```bash
+         docker run --rm -it search_engine
+         ```
+
+   <br>
+   
+   ➤ 💾 **B. Run a container with a persistent volume (files WILL be saved)** 💾  
+   
+      - Any files created or modified inside `/app/resources` will be saved in the volume and remain after the container is stopped.  
+   
+         **Step 1: Create a Docker volume to store your files**  
+         ```bash
+         docker volume create resources_volume
+         ```
+   
+         **Step 2: Start the container and link it to the volume**  
+         ```bash
+         docker run -it --name search_engine -v resources_volume:/app/resources search_engine
+         ```
+   
+         **Step 3: Remove the container when done**  
+         ```bash
+         docker rm search_engine
+         ```
+   
+         **Step 4 (Optional): Remove the volume when you no longer need the saved files**  
+         > ⚠️ Warning: this will permanently delete all files stored in the volume.  
+         ```bash
+         docker volume rm resources_volume
+         ```
+
+
+
 ---
+
 ### 📈 Results
 
 #### Boolean Engine
