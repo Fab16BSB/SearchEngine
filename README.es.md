@@ -2,6 +2,7 @@
 ![Universidad: IUT Montreuil](https://img.shields.io/badge/University-IUT%20Montreuil-red)
 ![máquina: aprendizaje](https://img.shields.io/badge/big-data-blue)
 ![java: 17](https://img.shields.io/badge/java-8-brightgreen)
+![Docker Ready](https://img.shields.io/badge/Docker-Ready-blue?logo=docker)
 ![Colaboradores](https://img.shields.io/badge/contributor-1-orange)
 ![Estrellas](https://img.shields.io/github/stars/Fab16BSB/SearchEngine?color=orange)
 ![Fork](https://img.shields.io/github/forks/Fab16BSB/SearchEngine?color=orange)
@@ -11,9 +12,9 @@
 
 ## 🌍 Versiones Multilingües del README
 
-- 🇫🇷 [Francés](./README.fr.md)
-- 🇬🇧 [Inglés](./README.md)
-- 🇪🇸 [Español  (estás aquí)](#)
+| 🇫🇷 Français | 🇬🇧 English | 🇪🇸 Español |
+|-------------|------------|------------|
+| [README.fr.md](./README.fr.md) | [README.md](./README.md) | ¡Estás aquí! |
 
 ---
 
@@ -86,26 +87,71 @@ Si no tienes Java instalado, puedes seguir uno de mis videos en YouTube para ins
 
 ---
 
-### 📝 Compilación y ejecución
+### 📝 Compilación y Ejecución
+Puedes compilar y ejecutar el proyecto de forma **local** o usando **Docker**.
 
+### ⚡ Opción 1: Compilación y Ejecución Local
 1. **Clonar el repositorio**
 
    ```bash
-   git clone https://github.com/Fab16BSB/SOM_JAVA.git
-   cd SOM_JAVA/code
+   git clone https://github.com/Fab16BSB/SearchEngine
+   cd src
    ```
-2. **Compilación**
+
+2. **Compilar**
 
    ```bash
    javac *.java
    ```
 
-3. **Ejecución**
+3. **Ejecutar**
 
    ```bash
-   java code.Lancement
-   ```
+   java Main
+   ````
 
+### 🐳 Opción 2: Uso de Docker
+
+1. **Construir la imagen de Docker**
+   ```bash
+   docker build -t search_engine .
+   ```
+   
+2. Ejecutar el contenedor Docker
+   
+   ➤ ⏳ A. Ejecutar un contenedor temporal (los archivos NO se guardarán) ⏳
+   - Esto iniciará el contenedor, ejecutará tu programa y eliminará el contenedor al finalizar. Todos los archivos creados o modificados dentro del contenedor se perderán.
+     
+      ```bash
+      docker run --rm -it search_engine
+      ```
+
+   <br>
+   
+   ➤ 💾 B. Ejecutar un contenedor con un volumen persistente (los archivos SE GUARDARÁN) 💾
+   
+      - Todos los archivos creados o modificados dentro de /app/resources se guardarán en el volumen y permanecerán después de detener el contenedor.
+   
+         **Paso 1: Crear un volumen de Docker para almacenar tus archivos**  
+         ```bash
+         docker volume create resources_volume
+         ```
+   
+         **Paso 2: Iniciar el contenedor y enlazarlo al volumen**  
+         ```bash
+         docker run -it --name search_engine -v resources_volume:/app/resources search_engine
+         ```
+   
+         **Paso 3: Eliminar el contenedor una vez finalizado**  
+         ```bash
+         docker rm search_engine
+         ```
+   
+         **Paso 4 (Opcional): Eliminar el volumen si ya no necesitas los archivos guardados**  
+         > ⚠️ Atención: esto eliminará permanentemente todos los archivos almacenados en el volumen.
+         ```bash
+         docker volume rm resources_volume
+         ```
 ---
 
 ### 📈 Resultados
