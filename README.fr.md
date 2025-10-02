@@ -2,6 +2,7 @@
 ![University: IUT Montreuil](https://img.shields.io/badge/University-IUT%20Montreuil-red)
 ![machine: learning](https://img.shields.io/badge/big-data-blue)
 ![java: 17](https://img.shields.io/badge/java-8-brightgreen)
+![Docker Ready](https://img.shields.io/badge/Docker-Ready-blue?logo=docker)
 ![Contributors](https://img.shields.io/badge/contributor-1-orange)
 ![Stars](https://img.shields.io/github/stars/Fab16BSB/SearchEngine?color=orange)
 ![Fork](https://img.shields.io/github/forks/Fab16BSB/SearchEngine?color=orange)
@@ -11,9 +12,9 @@
 
 ## 🌍 Versions multilingues du README
 
-- 🇫🇷 [Français (vous êtes ici)](#)
-- 🇬🇧 [English](./README.md)
-- 🇪🇸 [Español](./README.es.md)
+| 🇫🇷 Français | 🇬🇧 English | 🇪🇸 Español |
+|-------------|------------|------------|
+| Vous êtes ici ! | [README.md](./README.md) | [README.es.md](./README.es.md) |
 
 ---
 
@@ -88,7 +89,9 @@ Si vous n'avez pas Java installé, vous pouvez suivre les instructions dans l'un
 ---
 
 ### 📝 Compilation et exécution
+Vous pouvez compiler et exécuter le projet soit **localement**, soit en utilisant **Docker**.
 
+### ⚡ Option 1 : Compilation et Exécution Locale
 1. **Cloner le dépôt**
 
    ```bash
@@ -107,6 +110,49 @@ Si vous n'avez pas Java installé, vous pouvez suivre les instructions dans l'un
    ```bash
    java Main
    ````
+
+### 🐳 Option 2 : Utilisation de Docker
+
+1. **Construire l'image Docker**
+   ```bash
+   docker build -t search_engine .
+   ```
+   
+2. Exécuter le conteneur Docker
+   
+   ➤ ⏳ A. Lancer un conteneur temporaire (les fichiers NE SERONT PAS sauvegardés) ⏳
+   - Cela démarrera le conteneur, exécutera votre programme et supprimera le conteneur à la fin. Tous les fichiers modifiés ou créés à l'intérieur du conteneur seront perdus.
+     
+      ```bash
+      docker run --rm -it search_engine
+      ```
+
+   <br>
+   
+   ➤ 💾 **B. Lancer un conteneur avec un volume persistant (les fichiers SERONT sauvegardés)** 💾  
+   
+      - Tous les fichiers créés ou modifiés dans /app/resources seront sauvegardés dans le volume et resteront après l'arrêt du conteneur.  
+   
+         **Étape 1 : Créer un volume Docker pour stocker vos fichiers**  
+         ```bash
+         docker volume create resources_volume
+         ```
+   
+         **Étape 2 : Démarrer le conteneur et le lier au volume**  
+         ```bash
+         docker run -it --name search_engine -v resources_volume:/app/resources search_engine
+         ```
+   
+         **Étape 3 : Supprimer le conteneur une fois terminé**  
+         ```bash
+         docker rm search_engine
+         ```
+   
+         **Étape 4 (Optionnelle) : Supprimer le volume si vous n'avez plus besoin des fichiers sauvegardés**  
+         > ⚠️ Attention : cela supprimera définitivement tous les fichiers stockés dans le volume.
+         ```bash
+         docker volume rm resources_volume
+         ```
 ---
 
 ### 📈 Résultats
